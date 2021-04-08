@@ -1,71 +1,30 @@
-# Getting Started with Create React App
+# useRef hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+If you want to manipulate data in javaSript we use `getElementByID` and so on which renders the entire **DOM element** again and again.
 
-## Available Scripts
+In React using state(`useState`) which also re-renders the value of the component.
 
-In the project directory, you can run:
+Using `useRef` you can store the reference of **element** , pass into the component as child and can do manipulation. 
+In useRef, the DOM element never re-renders. useRef returns a **mutable ref object** which has property `.current`
 
-### `npm start`
+## Using useRef
+```javaScript
+   import React, { useRef } from "react";
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  const x = useRef();
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+If you do `console.log(x)` which gives object ![Screenshot from 2021-04-09 02-18 (1)](https://user-images.githubusercontent.com/56266493/114098079-80714280-98de-11eb-9a83-ba2945e34373.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you gives reference to useRef like input `<input ref={x} type="number"/>` gives ![Screenshot from 2021-04-09 02-18](https://user-images.githubusercontent.com/56266493/114098305-cb8b5580-98de-11eb-8579-aec6739ac815.png)
 
-### `npm run build`
+Lets just do `console.log(x.current)` which gives ![Screenshot from 2021-04-09 02-19 (2)](https://user-images.githubusercontent.com/56266493/114098594-3046b000-98df-11eb-9cdb-611035b40753.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Output of the code
+before clicking on **button One**![Screenshot from 2021-04-09 02-19 (1)](https://user-images.githubusercontent.com/56266493/114098706-5cfac780-98df-11eb-913f-88acd1a93caa.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+after clicked on **button One**![Screenshot from 2021-04-09 02-19](https://user-images.githubusercontent.com/56266493/114098766-769c0f00-98df-11eb-9a06-041933289f04.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# react-useRef
