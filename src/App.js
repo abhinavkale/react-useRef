@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [number, setNumber] = useState(0);
+
+  const inputOne = useRef();
+  const inputTwo = useRef();
+
+  const getNumber = () => {
+    console.log("Button One goes here");
+    console.log(inputOne.current);
+    inputOne.current.style.width = "500px";
+  };
+
+  const getNumberText = () => {
+    console.log("Button One goes here");
+    console.log(inputTwo.current);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>useRef</h2>
+      <div className="input__class">
+        <input
+          ref={inputOne}
+          type="number"
+          value={number}
+          style={{ width: "100px" }}
+          onChange={(e) => setNumber(e.target.value)}
+          placeholder="Enter number"
+        />
+
+        <input
+          ref={inputTwo}
+          type="text"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          placeholder="Enter number"
+        />
+      </div>
+      <h3>Value : {number}</h3>
+      <div className="button__class">
+        <button className="abc" onClick={() => getNumber()}>
+          One
+        </button>
+        <button className="xyz" onClick={() => getNumberText()}>
+          Two
+        </button>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
